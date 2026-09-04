@@ -14,14 +14,17 @@ Clone the repository:
 
 	git clone https://github.com/delindblad/Product-List-Manager.git
 
-and build the project in the sub folder "\Product List Manager" with the command:
-
-	msbuild "Product List Manager.csproj" -p:Configuration=Release
-
 For some reason I got an error message when testing and had to run:
 
 	dotnet restore
+	
 first.
+
+Then build the project in the folder with the command:
+
+	msbuild "Product List Manager.slnx" -p:Configuration=Release
+
+
 
 The resulting executable will be under "\bin\Release\net10.0\".
 
