@@ -300,32 +300,45 @@ class ProductListManager
         }
 
         Console.Clear();
-        
-        //Get the average
-        var average =
-            (from num in productNumbers
-             select num).Average();
-        //Get max number
-        var max = (from num in productNumbers
-                   select num).Max();
+        try
+        {
+            //Get the average
+            float average =
+                (from num in productNumbers
+                 select num).Average();
+            //Get max number
+            float max = (from num in productNumbers
+                         select num).Max();
 
-        //Get min number
-        var min = (from num in productNumbers
-                   select num).Min();
+            //Get min number
+            float min = (from num in productNumbers
+                         select num).Min();
 
-        //Get the count
-        var count = (from num in productNumbers
-                     select num).Count();
+            //Get the count
+            int count = (from num in productNumbers
+                         select num).Count();
 
-        //Print the results
-        Console.WriteLine("- Total Products: " + count.ToString());
-        Console.WriteLine("- Lowest Number: " + min.ToString());
-        Console.WriteLine("- Highest Number: " + max.ToString());
-        Console.WriteLine("- Average Number: " + average.ToString());
+            //Print the results
+            Console.WriteLine("- Total Products: " + count.ToString());
+            Console.WriteLine("- Lowest Number: " + min.ToString());
+            Console.WriteLine("- Highest Number: " + max.ToString());
+            Console.WriteLine("- Average Number: " + average.ToString());
 
-        Console.WriteLine("\n\nPress any button to return to main menu.");
-        Console.ReadKey();
-        Console.Clear();
+
+        }
+        catch(Exception e)
+        {
+            Console.WriteLine(e.Message.ToString());
+          
+
+        }
+        finally
+        {
+
+            Console.WriteLine("\n\nPress any button to return to main menu.");
+            Console.ReadKey();
+            Console.Clear();
+        }
     }
     /*
      * <summary>Saves the list</summary>
