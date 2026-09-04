@@ -33,7 +33,58 @@ Only me.
 ## Future improvements
 Nothing planned.
 
+## Answers to "Interview-Style Questions"
 
+### Beginner Questions
+
+What is the difference between List and Array?
+	
+	Arrays store the data sequentially in memory, whilw lists uses references.
+	Lists are in many ways more robust, but access can be slower compared to arrays since the list will have to be traversed.
+	With an array elements can be accessed in constant time, but inserting and deleting can be slower since the wole array has to be copied.
+
+What does int.TryParse() do?
+
+	It checks if the argument string can be pased as an int and returns a bolean value. If successful, it returns true and stores the result in the second argument, which is a reference.
+
+Why should validation be separated into methods?
+
+    It will make the code easier to read and manage, and will make things more modular.
+
+### Intermediate Questions
+
+What is encapsulation?
+	
+    It's a concept used in Object oriented programming. It is basically a way to hide the specifics, provide an interface to the programmer, and prevent bugs.
+
+
+Why use classes instead of plain strings?
+	
+    Classes have associated methods which makes them more convenient to use.
+
+What is LINQ?
+	
+    A declarative query language that can be embedded in C# code. It is used to extract data from structures.
+
+### Advanced Questions
+
+
+
+What design improvements would you make?
+	
+    I would use a proper DBMS and make it more asynchronous. I would also design it as a client/server application.
+  
+
+
+How would you store products in a database?
+	
+    As relations.
+  
+
+
+How would you unit test validation logic?
+	
+    By running assertion tests regularly.
 
 
 
