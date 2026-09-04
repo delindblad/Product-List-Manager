@@ -10,9 +10,18 @@ A simple application for managing products by storing them in a list.
 - LINQ
 - JSON
 ## Installation
-Clone the repository and build the project in the sub folder "\Product List Manager" with the command:
-`msbuild "Product List Manager.csproj" -p:Configuration=Release`
-For some reason I got an error message when testing and had to run `dotnet restore` first.
+Clone the repository:
+
+	git clone https://github.com/delindblad/Product-List-Manager.git
+
+and build the project in the sub folder "\Product List Manager" with the command:
+
+	msbuild "Product List Manager.csproj" -p:Configuration=Release
+
+For some reason I got an error message when testing and had to run:
+
+	dotnet restore
+first.
 
 The resulting executable will be under "\bin\Release\net10.0\".
 
