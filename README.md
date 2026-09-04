@@ -67,7 +67,7 @@ Why should validation be separated into methods?
 
 What is encapsulation?
 	
-    It's a concept used in Object oriented programming. It is basically a way to hide the specifics, provide an interface to the programmer, and prevent bugs.
+    It's a concept used in Object oriented programming. It is basically a way to hide the internals, provide an interface to the programmer, and prevent bugs by restricting access.
 
 
 Why use classes instead of plain strings?
