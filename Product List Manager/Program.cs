@@ -33,7 +33,7 @@ class ProductListManager
             products = new List<string>();
         }
          
-
+        Console.Clear();
         /*
          * Main menu loop
          */
