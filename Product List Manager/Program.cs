@@ -10,6 +10,7 @@ class ProductListManager
     {
         //List of products
         List<string> products = null;
+        //If there's a saved list, load it
         if (File.Exists("products.json"))
         {
             try
@@ -20,17 +21,22 @@ class ProductListManager
             catch (Exception ex)
             {
                 {
+                    //Unexpected problem, exit
                     Console.WriteLine(ex.Message);
+                    return;
                 }
             }
         }
+        //Else create a new list
         else
         {
             products = new List<string>();
         }
          
 
-
+        /*
+         * Main menu loop
+         */
         while (true)
         {
             
@@ -72,25 +78,25 @@ class ProductListManager
                     return;
 
                 default:
-                    Console.Clear();
+                    //Console.Clear();
                     break;
             }
         }
         
     }
 
-    //Runs the product adding interface
+
+
+    /*
+     * <summary>Shows the menu that allows the user to add products to the list</summary>
+     * <param name="products">The product list</param>
+     * 
+     */
     public static void AddProductsView(List<string> products)
     {
-
-        //Console.Clear();
-       
-
-
         //Input variable
         string input;
-        //Regex pattern
-        //string pattern = @"^([a-zA-Z]+)-([2-4][0-9][0-9]|500)$";
+ 
         Console.WriteLine("Enter product names.");
         Console.WriteLine("Type 'exit' to finish.");
         Console.Write("Product:");
@@ -102,6 +108,7 @@ class ProductListManager
             ErrorMessage = "";
             if ((input = Console.ReadLine()) != null)
             {
+                //Set to lower case and remove whitespace
                 input = input.Trim().ToLower();
             }
             else
@@ -114,10 +121,10 @@ class ProductListManager
                 break;
             }
             else
-            {
+            {   //Validate
                 if (ValidateInput(input))
                 {
-                    
+                    //Print warning if the product already exists
                     if (products.Contains(input))
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
@@ -129,6 +136,7 @@ class ProductListManager
                     }
                     else
                     {
+                        //Add the product
                         products.Add(input);
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("Added '" + input + "'");
@@ -138,6 +146,7 @@ class ProductListManager
                     }
                 }
                 else 
+                    //It failed to validate, print the error message
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine(ErrorMessage);
@@ -149,6 +158,7 @@ class ProductListManager
              
             
             }
+            //Reprint instructions
             Console.WriteLine("Enter product names.");
             Console.WriteLine("Type 'exit' to finish.");
             Console.Write("Product:");
@@ -156,7 +166,11 @@ class ProductListManager
         }
 
     }
-
+    /*
+     * <summary>Lets the user view the contents of the list</summary>
+     * <param name="products">The product list</param>
+     * 
+     */
     public static void ViewProductsView(List<string> products)
     {
         Console.Clear();
@@ -172,7 +186,11 @@ class ProductListManager
         Console.Clear();
     }
 
-    public static void SearchProductsView(List<string> products)
+    /*
+     * <summary>Menu that lets the user search for products</summary>
+     * <param name="products">The product list</param>
+     * 
+     */public static void SearchProductsView(List<string> products)
     {
         while (true)
         { 
@@ -215,6 +233,11 @@ class ProductListManager
        }
     }
 
+    /*
+     * <summary>Shows the menu that lets the user delete products</summary>
+     * <param name="products">The product list</param>
+     * 
+     */
     public static void DeleteProductsView(List<string> products)
     {
         while (true)
@@ -224,18 +247,22 @@ class ProductListManager
             Console.WriteLine("Type '%' to return to the main menu.");
             Console.Write("Product:");
             var query = Console.ReadLine();
+            // '%' is used to exit the menu
             if (query == "%")
             {
                 Console.Clear();
                 break;
 
             }
+            //Check if it's in the list
             if (products.Contains(query))
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
+                //Ask for confirmation
                 Console.WriteLine("Are you sure? (y/n)");
                 Console.ResetColor();
                 if (Console.ReadKey().KeyChar == 'y')
+                    //Delete the product
                 {
                     products.Remove(query);
                     Console.WriteLine("\nProduct '" + query + "' deleted!");
@@ -252,10 +279,14 @@ class ProductListManager
             }
         }
     }
-
+    /*
+     * <summary>Print statistics</summary>
+     * <param name="products">The product list</param>
+     * 
+     */
     public static void ShowStatisticsView(List<string> products)
     {
-        //Create a new list with only the numerical part
+        //Create a new list with only the numerical part, use floats to support 'Average()'
         List<float> productNumbers = new List<float>();
         foreach (var product in products)
         {
@@ -286,7 +317,7 @@ class ProductListManager
         var count = (from num in productNumbers
                      select num).Count();
 
-
+        //Print the results
         Console.WriteLine("- Total Products: " + count.ToString());
         Console.WriteLine("- Lowest Number: " + min.ToString());
         Console.WriteLine("- Highest Number: " + max.ToString());
@@ -296,7 +327,11 @@ class ProductListManager
         Console.ReadKey();
         Console.Clear();
     }
-
+    /*
+     * <summary>Saves the list</summary>
+     * <param name="products">The product list</param>
+     * 
+     */
     public static void SaveView(List<string> products)
     {
         //Serialize to JSON sting
@@ -309,7 +344,11 @@ class ProductListManager
         Console.Clear();
 
     }
-
+    /*
+     * <summary>Validates the input</summary>
+     * <param name="input">input string</param>
+     * <returns>Returns true if successful, otherwise false</returns>
+     */
     public static bool ValidateInput(string input)
     {
 
@@ -325,7 +364,7 @@ class ProductListManager
         //This regexp should make any use of "int.TryParse()" redundant
         if (!Regex.Match(input, @"^([a-zA-Z]+)-([2-4][0-9][0-9]|500)$").Success)
         {
-            //Match and extract sub 
+            //Match and extract groups
             Match m = Regex.Match(input, @"^(.+)-(.+)$");
             if (!m.Success)
             { 
