@@ -90,13 +90,13 @@ What design improvements would you make?
 
 How would you store products in a database?
 	
-    As relations.
+    I would use a relational model.
   
 
 
 How would you unit test validation logic?
 	
-    By running assertion tests regularly.
+    By continuously running assertion tests.
 
 
 
