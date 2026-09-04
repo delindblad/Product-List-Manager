@@ -1,5 +1,5 @@
 # Product List Manager
-##Description
+## Description
 A simple application for managing products by storing them in a list.
 ## Features
 - Simple to use interactive interface
