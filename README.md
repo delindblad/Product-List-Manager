@@ -17,7 +17,7 @@ Clone the repository:
 
 then build the project in the folder with the command:
 
-	msbuild "Product List Manager.slnx" -p:Configuration=Release
+	dotnet build "Product List Manager.slnx" -p:Configuration=Release
 
 
 
