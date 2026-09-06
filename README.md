@@ -14,15 +14,10 @@ Clone the repository:
 
 	git clone https://github.com/delindblad/Product-List-Manager.git
 
-For some reason I got an error message when testing and had to run:
 
-	dotnet restore
-	
-first.
+then build the project in the folder with the command:
 
-Then build the project in the folder with the command:
-
-	msbuild "Product List Manager.slnx" -p:Configuration=Release
+	dotnet build "Product List Manager.slnx" -p:Configuration=Release
 
 
 
@@ -84,7 +79,11 @@ What is LINQ?
 
 What design improvements would you make?
 	
-    I would use a proper DBMS and make it more asynchronous. I would also design it as a client/server application.
+	- Use a proper DBMS
+	- make it more asynchronous
+	- design it as a client/server application
+	- add support for international characters
+
   
 
 
