@@ -79,7 +79,11 @@ What is LINQ?
 
 What design improvements would you make?
 	
-    I would use a proper DBMS and make it more asynchronous. I would also design it as a client/server application.
+	- Use a proper DBMS
+	- make it more asynchronous
+	- design it as a client/server application
+	- add support for international characters
+
   
 
 
