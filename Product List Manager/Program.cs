@@ -2,7 +2,8 @@
 using System.Text.RegularExpressions;
 using System.Linq;
 using System.Text.Json;
-class ProductListManager
+namespace ProdutListManager;
+public class ProductListManager
 {
     static string ErrorMessage = "";
     static void Main(string[] args)
@@ -76,9 +77,8 @@ class ProductListManager
                     break;
                 case '7':
                     return;
-
                 default:
-                    //Console.Clear();
+                    Console.Clear();
                     break;
             }
         }

@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="Product List Manager/Product List Manager.csproj" />
+  <Project Path="UnitTests/UnitTests.csproj" Id="2e2cba5e-161e-4f79-80f9-74e7acf19b5e" />
 </Solution>
