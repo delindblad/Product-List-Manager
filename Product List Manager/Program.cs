@@ -6,7 +6,7 @@ namespace ProdutListManager;
 public class ProductListManager
 {
     static string ErrorMessage = "";
-    static void Main(string[] args)
+    public static void Main(string[] args)
         
     {
         //List of products
@@ -328,8 +328,13 @@ public class ProductListManager
         }
         catch(Exception e)
         {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("No statsistics to show!\nIs the database empty?\n");
+            Console.ResetColor();
+            Console.WriteLine("Details:\n");
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(e.Message.ToString());
-          
+            Console.ResetColor();
 
         }
         finally

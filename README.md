@@ -9,6 +9,7 @@ A simple application for managing products by storing them in a list.
 - C#
 - LINQ
 - JSON
+- xUnit
 ## Installation
 Clone the repository:
 
