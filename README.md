@@ -25,7 +25,7 @@ then build the project in the folder with the command:
 The resulting executable will be under "\bin\Release\net10.0\".
 
 ## How to run
-Just run the executable "Product List Manager.exe". And follow the instructions
+Just run the executable "Product List Manager.exe". And follow the instructions.
 
 ## Screenshots
 
